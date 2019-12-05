@@ -18,19 +18,27 @@ int main(){
     }
 
     vector<long int> lists(n,0);
+
     for(int i = 0; i < m; i++){
         a = abk[i][0];
         b = abk[i][1];
         k = abk[i][2];
-        for(int j = a-1; j < b; j++){
-            lists[j] += k;
+
+        lists[a-1] +=  k;
+
+        if(b != n){
+            lists[b] -= k;
         }
     }
 
-    long int max = lists[0];
-    for (int i = 1; i < n; i++) {
-        if(max < lists[i]){
-            max = lists[i];
+    max = 0;
+    temp = 0;
+
+    for(int i = 0; i < n; i++){
+        temp += lists[i];
+
+        if{temp > max}{
+            max = temp;
         }
     }
 
