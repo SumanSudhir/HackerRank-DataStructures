@@ -10,7 +10,7 @@ int main() {
     vector<int> left_arr(n);
 
     for(int i = 0; i < n; i++){
-        cin >> arr[i];
+      4  cin >> arr[i];
     }
 
     for(int j = 0; j < n; j++){
