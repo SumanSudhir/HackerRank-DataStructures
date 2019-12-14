@@ -76,7 +76,7 @@ DoublyLinkedListNode* reverse(DoublyLinkedListNode* head) {
     DoublyLinkedListNode* temp1;
 
     while(true){
-        temp2 = head->prev;
+        temp1 = head->prev;
         head->prev = head->next;
         head->next = temp1;
 
