@@ -16,10 +16,29 @@ void inOrder(Node *root) {
     if(root == NULL){
         return;
     }
-
     inOrder(root->left);
     cout<<root->data<<" ";
     inOrder(root->right);
+}
+
+void swap(Node *root){
+    Node* temp = root->left;
+    root->left = root->right;
+    root->right = temp;
+}
+
+
+void swapNodes(Node *root, int level, int query) {
+    if(root == NULL){
+        return;
+    }
+
+    if((level)% query == 0){
+        swap(root);
+    }
+
+    swapNodes(root->left, level+1,query);
+    swapNodes(root->right, level+1,query);
 
 }
 
@@ -55,8 +74,9 @@ int main(){
     vector<int>query(n_query);
     for(int i=0;i<n_query;i++){
         cin>>query[i];
+        swapNodes(root,1,query[i]);
+        inOrder(root);
+        cout<<endl;
     }
-
-    inOrder(root);
 
 }
