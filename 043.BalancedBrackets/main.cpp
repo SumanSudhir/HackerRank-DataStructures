@@ -5,21 +5,31 @@ using namespace std;
 string isBalanced(string s) {
 
     stack <char> c;
+    char closing;
+
+
     for(int i=0;i<s.length();i++){
         if((s[i] == '(') || (s[i] == '{') || (s[i] == '[')){
             c.push(s[i]);
         }
 
-        if((s[i] == ')') || (s[i] == '}') || (s[i] == '}')){
+        if((s[i] == ')') || (s[i] == '}') || (s[i] == ']')){
 
-            char closing;
+        // else{
+
+            if(c.empty()){
+                return "NO";
+            }
+
             if(c.top() == '('){
                 closing = ')';
             }
-            else if(c.top() == '['){
+
+            if(c.top() == '['){
                 closing = ']';
             }
-            else if(c.top() == '{'){
+
+            if(c.top() == '{'){
                 closing = '}';
             }
 
@@ -29,6 +39,10 @@ string isBalanced(string s) {
 
             else{c.pop();}
         }
+    }
+
+    if(!c.empty()){
+        return "NO";
     }
 
     return "YES";
@@ -49,6 +63,4 @@ int main(){
         cout<<result<<endl;
 
     }
-
-
 }
